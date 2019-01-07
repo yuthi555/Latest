@@ -10,7 +10,7 @@
       data:
         assignment_group: Unix Server Operations
         category: Server Infrastructure
-        short_description: 'New Linux change change 01/30/2019'
+        short_description: 'RM team - Freeze period 01/15 ends - Approval'
         start_date: "{{item.Release_date}}"
         type: Normal
       instance: dev50141
