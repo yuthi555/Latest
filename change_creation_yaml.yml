@@ -1,0 +1,24 @@
+---
+- gather_facts: false
+  hosts: localhost
+  vars_files:
+    - Server_Inventory_hosts.yml
+  tasks:
+  - name: Create a ticket in SNOW updated
+    register: new_change_request
+    snow_record:
+      data:
+        assignment_group: Unix Server Operations
+        category: Server Infrastructure
+        short_description: 'New Linux change change 01/12/2019'
+        start_date: "{{item.Release_date}}"
+        type: Normal
+      instance: dev50141
+      password: Welsnow321#
+      state: present
+      table: change_request
+      username: admin
+    with_items:
+        - "{{ serverinventory }}"
+#    register: new_change_request
+#- debug: var=new_change_request.record.number
