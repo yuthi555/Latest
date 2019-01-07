@@ -1,4 +1,8 @@
 ---
+- name: excel to CSV file conversion
+  hosts: localhost
+  gather_facts: false
+- import_playbook: xls_to_csv.yml
 - name: CSV to yaml file converstion
   hosts: localhost
   gather_facts: false
@@ -11,7 +15,7 @@
   hosts: localhost 
   tasks:
     - debug: 
-        msg: "Converstion process completed successfully"
+        msg: "Conversion process completed successfully"
 - name: Change creation process begins
   hosts: localhost
 - import_playbook: change_creation_yaml.yml
