@@ -1,0 +1,22 @@
+---
+- name: CSV to yaml file converstion
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - debug:
+        msg: "Conversion process begins"   
+- import_playbook: csv_to_yml.yml
+    
+- name: Conversion process end
+  hosts: localhost 
+  tasks:
+    - debug: 
+        msg: "Converstion process completed successfully"
+- name: Change creation process begins
+  hosts: localhost
+- import_playbook: change_creation_yaml.yml
+- name: Change creation process end
+  hosts: localhost
+  tasks:
+    - debug: 
+        msg: "change creation process completed successfully"
