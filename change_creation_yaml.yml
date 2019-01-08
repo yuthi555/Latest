@@ -10,7 +10,7 @@
       data:
         assignment_group: Unix Server Operations
         category: Server Infrastructure
-        short_description: 'RM team - Freeze period 01/15 ends - Approval'
+        short_description: 'Patch team - 01/08/2019-Updated'
         start_date: "{{item.Release_date}}"
         type: Normal
       instance: dev50141
