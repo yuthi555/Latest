@@ -1,0 +1,8 @@
+Configuration_Item,Release_date,Server
+Dev1,   2019-01-15,A
+Dev1,   2019-01-15,B
+Prod,  2019-01-23,ABC
+QA,  2019-01-14,DDD
+Dev1,   2019-01-15,C
+QA,  2019-01-14,EEE
+Dev1,   2019-01-15,D
