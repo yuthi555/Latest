@@ -42,5 +42,6 @@
 - name: Copy the inventory file into the data folder 
   hosts: localhost
   fetch:
-     src: ./Server_Inventory_Linux.xlsx
-    dest: ./data/
+    src: ./Server_Inventory_Linux.xlsx
+   dest: ./data/
+   flat: yes
