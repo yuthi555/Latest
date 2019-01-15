@@ -1,8 +1,19 @@
 ---
-- name: excel to CSV file conversion SSH key generation 234
+- name: check if the file exists in the directory 
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - stat: path=./data/Server_Inventory_Linux.xlsx
+      register: Inv_file
+    - debug:
+        msg: "Inventory file is already exectued for this month. Please don't process the duplicate file again."
+      failed_when: Inv_file.stat.exists
+      
+- name: excel to CSV file conversion method starts
   hosts: localhost
   gather_facts: false
 - import_playbook: xls_to_csv.yml
+
 - name: CSV to yaml file converstion
   hosts: localhost
   gather_facts: false
@@ -16,11 +27,19 @@
   tasks:
     - debug: 
         msg: "Conversion process completed successfully"
+
 - name: Change creation process begins
   hosts: localhost
 - import_playbook: change_creation_yaml.yml
+
 - name: Change creation process end
   hosts: localhost
   tasks:
     - debug: 
         msg: "change creation process completed successfully"
+        
+- name: Copy the inventory file into the data folder 
+  hosts: localhost
+  copy:
+      src: ./Server_Inventory_Linux.xlsx
+      dest: ./data/
