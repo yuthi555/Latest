@@ -4,7 +4,7 @@
   vars_files:
     - Server_Inventory_hosts.yml
   tasks:
-  - name: Create a ticket in SNOW updated
+  - name: Create a change ticket in SNOW 
     register: new_change_request
     snow_record:
       data:
