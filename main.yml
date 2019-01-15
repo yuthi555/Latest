@@ -1,13 +1,14 @@
 ---
-- name: check if the file exists in the directory 
+- name: Inventory file validation
   hosts: localhost
   gather_facts: false
   tasks:
     - stat: path=./data/Server_Inventory_Linux.xlsx
       register: Inv_file
-    - debug:
-        msg: "Inventory file is already exectued for this month. Please don't process the duplicate file again."
-      failed_when: Inv_file.stat.exists
+    - name: Check if the file exists in the directory
+      fail:
+        msg: "The inventory file is already processed for this month"
+      when: Inv_file.stat.exists
       
 - name: excel to CSV file conversion method starts
   hosts: localhost
