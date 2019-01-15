@@ -38,7 +38,7 @@
   tasks:
     - debug: 
         msg: "change creation process completed successfully"
-        
+
 - name: Copy the inventory file into the data folder 
   hosts: localhost
   copy:
