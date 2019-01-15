@@ -8,11 +8,25 @@
     register: new_change_request
     snow_record:
       data:
-        assignment_group: Unix Server Operations
-        category: Server Infrastructure
-        short_description: 'Patch team - 01/08/2019-Updated'
+        u_environment: "{{item.Environment}}"
+        cmdb_ci: "{{item.CI}}"
         start_date: "{{item.Release_date}}"
-        type: Normal
+        short_description: "{{item.Short_Description}}"
+        category: "{{item.Category}}"
+        assignment_group: "{{item.Assigned_Group}}"
+        assigned_to: "{{item.Assigned_To}}"
+        u_change_coordinator: "{{item.Change_Coordinator}}"
+        u_technical_approver: "{{item.Technical_Approver}}"
+        type: "{{item.Patching_Type}}"
+        implementation_plan: "{{item.Implemention_Plan}}"
+        backout_plan: "{{item.BackoutPlan}}"
+        test_plan: "{{item.ValidationPlan}}"
+        requested_by: Abel Tuter
+        description: '2021| NON PROD Q3 Linux Patching QA'
+        u_director_approval: '.Caitlin Reiniger'
+        u_product_approval: '.Abraham Lincoln'
+        u_sr_director_approval: '.Adela Cervantsz'
+        u_vp_approval: '.Barbara Hindley'
       instance: dev50141
       password: Welsnow321#
       state: present
