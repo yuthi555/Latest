@@ -45,4 +45,4 @@
      src: 
        - yes
        - ./Server_Inventory_Linux.xlsx
-      dest: ./data/
+    dest: ./data/
