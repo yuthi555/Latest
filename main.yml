@@ -40,7 +40,7 @@
         msg: "change creation process completed successfully"
 
 - name: Copy the inventory file into the data folder 
-  hosts: localhost
-  fetch:
-   dest: ./data
-   content: "{{ ./Server_Inventory_Linux.xlsx }}"
+  copy:
+    src: ./Server_Inventory_Linux.xlsx
+    dest: ./data/
+    hosts: localhost
