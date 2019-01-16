@@ -42,5 +42,5 @@
 - name: Copy the inventory file into the data folder 
   hosts: localhost
   copy:
-   dest: ./data/
+   dest: ./data
    content: "{{ ./Server_Inventory_Linux.xlsx }}"
