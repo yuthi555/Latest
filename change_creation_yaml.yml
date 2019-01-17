@@ -4,9 +4,13 @@
   vars_files:
     - Server_Inventory_hosts.yml
   tasks:
-  - name: Create a change ticket in SNOW 
-    register: new_change_request
-    snow_record:
+    - name: Create a change ticket in SNOW 
+      snow_record:
+      instance: dev34680
+      username: admin
+      password: 009@Shreya
+      state: present
+      table: change_request
       data:
         u_environment: "{{item.Environment}}"
         cmdb_ci: "{{item.CI}}"
@@ -27,13 +31,8 @@
         u_product_approval: '.Abraham Lincoln'
         u_sr_director_approval: '.Adela Cervantsz'
         u_vp_approval: '.Barbara Hindley'
-      instance: dev34680
-      password: 009@Shreya
-      state: present
-      table: change_request
-      username: admin
+      register: new_change_request
     with_items:
         - "{{ serverinventory }}"
 #   register: new_change_request
 # - debug: var=new_change_request.record.number
-
