@@ -39,8 +39,9 @@
     - debug: 
         msg: "change creation process completed successfully"
 
-- name: Copy the inventory file into the data folder 
-  copy:
-    src: https://github.com/yuthi555/Latest/Server_Inventory_Linux.xlsx
-    dest: https://github.com/yuthi555/Latest/data/
-    hosts: localhost
+- name: Copy the file into the data folder
+  hosts: localhost
+  tasks:
+  - copy:
+      src: ./Server_Inventory_Linux.xlsx
+      dest: ./data/
