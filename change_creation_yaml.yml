@@ -34,5 +34,6 @@
       username: admin
     with_items:
         - "{{ serverinventory }}"
-    register: new_change_request
+#   register: new_change_request
+# - debug: var=new_change_request.record.number
 
