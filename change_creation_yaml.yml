@@ -2,17 +2,9 @@
 - gather_facts: false
   hosts: localhost
   vars_files:
-     my_username: admin
-     my_password: !vault |
-          $ANSIBLE_VAULT;1.1;AES256
-          63373432376562313866393164626634333962366233326262633130633836633966643639326139
-          6534363530626465383465313832623533313134653466340a666639626262663862656263343631
-          38646365613330633831373337613066333933666134663366663535666530646438643034613161
-          6330616337346564610a633139313837386130303562663362366536303062656361646531373335
-          3930
-  - Server_Inventory_hosts.yml
+    - Server_Inventory_hosts.yml
   tasks:
-  - name: create a change ticket in SNOW 
+  - name: Create a change ticket in SNOW 
     register: new_change_request
     snow_record:
       data:
@@ -36,11 +28,10 @@
         u_sr_director_approval: '.Adela Cervantsz'
         u_vp_approval: '.Barbara Hindley'
       instance: dev34680
-      username: "{{ my_username }}"
-      password: "{{ my_password }}"
+      password: 009@Shreya
       state: present
       table: change_request
-      
+      username: admin
     with_items:
         - "{{ serverinventory }}"
 #    register: new_change_request
